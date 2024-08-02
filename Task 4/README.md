@@ -1,30 +1,49 @@
-# React + TypeScript + Vite
+# Todo App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple Todo application built with React and TypeScript that allows users to add, edit, delete, and manage tasks. The application uses `localStorage` to persist tasks across browser sessions.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Add Tasks**: Users can add new tasks with a unique identifier.
+- **Edit Tasks**: Users can edit existing tasks.
+- **Delete Tasks**: Users can delete tasks they no longer need.
+- **Persist Data**: Tasks are saved in `localStorage` to ensure data persistence across browser sessions.
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. **Clone the repository**:
+    ```bash
+    git clone https://github.com/naodmulu/A2SV-WEB-tasks.git
+    cd A2SV-WEB-tasks/"Task 4"
+    ```
 
-- Configure the top-level `parserOptions` property like this:
+2. **Install dependencies**:
+    ```bash
+    npm install
+    ```
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+3. **Start the application**:
+    ```bash
+    npm run dev
+    ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+The application will be available at `http://localhost:5173/`.
+
+## Usage
+
+![ToDo app in React](assets/1.png)
+### Adding a Task
+
+1. Enter the task description in the input field.
+2. Click the "Add Task" button.
+
+### Editing a Task
+
+1. Click the "Edit" button next to the task you want to edit.
+2. Modify the task description in the input field.
+3. Click the "Save" button to save the changes or "Cancel" to discard them.
+
+### Deleting a Task
+
+1. Click the "Delete" button next to the task you want to delete.
+
