@@ -1,0 +1,45 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.container{
+  
+  background-color: rgb(204, 229, 250);
+  border-radius: 25px;
+  min-height: 250px;
+  width: 35%;
+  min-width: 350px;
+  margin: auto;
+  
+  
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(15, 14, 14);
+  border-top-right-radius: 25px;
+  border-top-left-radius: 25px;
+
+}
+
+.top h1{
+  background-color: rgba(20, 241, 241, 0.623);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  padding: 1px;
+  border-radius: 35px;
+  width: 75%;
+  color: rgb(247, 218, 180);
+  
+}
+
+.bottom {
+  height: 100%;
+}
