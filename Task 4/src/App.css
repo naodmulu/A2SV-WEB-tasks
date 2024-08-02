@@ -7,12 +7,13 @@
 
 .container{
   
-  background-color: rgb(204, 229, 250);
   border-radius: 25px;
   min-height: 250px;
   width: 35%;
   min-width: 350px;
   margin: auto;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   
   
 }
