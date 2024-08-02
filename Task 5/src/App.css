@@ -1,8 +1,25 @@
 .container{
-  max-width: 1200px;
-  /* margin:auto; */
+  width: 100%;
+  max-width: 300px;
+  padding-bottom:25px;
+  max-height: 1200px;
   display: flex;
   align-items: center;
   align-self: center;
   flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  background-color: #cfcfcf;
+  border-radius: 15px;
 }
+
+.tab{
+  display: flex;
+  justify-content: center;
+  color:#fff;
+  background-color: #1a0505;
+  width: 100%;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+}
+

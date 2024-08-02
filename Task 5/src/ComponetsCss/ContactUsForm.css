@@ -1,0 +1,44 @@
+
+.formContainer{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: max-content;
+}
+
+.formContainer button{
+    width: 50%;
+    margin-top: 20px;
+    display: flex;
+    align-self: flex-end;
+    text-align: center;
+
+}
+
+
+.items{
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+label{
+
+    display: flex;
+    justify-content: space-between;
+}
+
+label .errorMessage{
+
+    color: #fc0000;
+    font-size: 12px;
+    justify-content: end;
+}
+
+textarea {
+    width: 100%;
+    resize: vertical; 
+    padding: 0.5rem;
+    font-size: 1rem;
+}
