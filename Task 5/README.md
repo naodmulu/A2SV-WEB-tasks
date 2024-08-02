@@ -1,30 +1,60 @@
-# React + TypeScript + Vite
+# Contact Us Form Component
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a React component for a "Contact Us" form, designed to collect user information such as name, email, and a message. It uses the `react-hook-form` library for form management and validation.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Form Validation**: Ensures that all fields are filled out correctly before submission.
+- **Styled Components**: Custom CSS styles to provide a clean and user-friendly interface.
+- **DevTool Integration**: Includes the `@hookform/devtools` for easier debugging and form management during development.
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/naodmulu/A2SV-WEB-tasks.git
+    ```
 
-- Configure the top-level `parserOptions` property like this:
+2. Navigate to the project directory:
+    ```sh
+    cd A2SV-WEB-tasks\"Task 5"
+    ```
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+3. Install the dependencies:
+    ```sh
+    npm install
+    ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+4. Run the App:
+    ```sh
+    npm run dev
+    ```
+
+
+## Usage
+
+1. **Form Structure**:
+    - The form contains three fields for user input:
+        - **Name**: A text input field for entering the user's name.
+        - **Email**: An email input field for entering the user's email address.
+        - **Message**: A textarea for entering the user's message or inquiry.
+
+    ![Form](assets/before%20submission.png)
+
+2. **Validation**:
+    - **Name**: The name field is required and must be filled out by the user.
+    - **Email**: The email field is required and must contain a valid email address format.
+    - **Message**: The message field is required and must be filled out by the user.
+
+    ![full information](assets/full%20information.png)
+
+3. **Error Handling**:
+    - If any of the fields are not filled out correctly, an error message will be displayed under the respective field to guide the user in providing the correct information.
+
+    ![Alt text](assets/Error%20handling.png)
+
+## Dependencies
+
+- `react`
+- `react-hook-form`
+- `@hookform/devtools`
