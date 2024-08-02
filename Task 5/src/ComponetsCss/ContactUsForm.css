@@ -1,18 +1,28 @@
-
+#root{
+    font-size: medium;
+}
 .formContainer{
     
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     width: max-content;
+    padding-left: 30px;
 }
 
 .formContainer button{
     width: 50%;
-    margin-top: 20px;
+    padding: 5px 10px;
+    padding-left: 10px;
     display: flex;
     align-self: flex-end;
     text-align: center;
+    margin-top: 20px;
+    margin-left: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: medium;
 
 }
 
@@ -40,5 +50,14 @@ textarea {
     width: 100%;
     resize: vertical; 
     padding: 0.5rem;
-    font-size: 1rem;
+    font-size: 14px;
+    font-weight: 150;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+button:hover {
+    background-color: rgb(107, 31, 31);
+}
+input{
+    width:100%;
 }

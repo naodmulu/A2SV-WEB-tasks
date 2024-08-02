@@ -17,7 +17,7 @@ const ContactUsForm = () => {
     };
 
     return (
-        <div>
+        <div className="form">
             <form className="formContainer" onSubmit={handleSubmit(checkSubmit)}>
                 <div className="items">
                     <label htmlFor="name">
