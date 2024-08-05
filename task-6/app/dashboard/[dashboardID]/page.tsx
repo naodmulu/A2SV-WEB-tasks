@@ -1,0 +1,19 @@
+import React from 'react';
+import Description from '../../components/serverSide/Description';
+import About from '../../components/serverSide/About';
+
+const DashboardData = ({ params }: { params: { dashboardID: string } }) => {
+  const { dashboardID } = params;  // Destructure the dashboardID from params
+  
+  return (
+    <div className="w-full p-5 flex justify-between">
+      {/* Description */}
+      <Description index={parseInt(dashboardID)} />
+      
+      {/* About */}
+      <About index={parseInt(dashboardID)} />
+    </div>
+  );
+};
+
+export default DashboardData;
