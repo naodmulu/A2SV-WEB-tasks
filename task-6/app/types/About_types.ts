@@ -1,6 +1,6 @@
 interface AboutProps{
 
-    index:number;
+    index:string;
 }
 
 export default AboutProps

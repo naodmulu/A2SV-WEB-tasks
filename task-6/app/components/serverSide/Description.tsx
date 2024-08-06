@@ -1,42 +1,66 @@
-import React from 'react';
-import jsonData from '@/app/Jobs';
+"use client";
+import React, { useEffect, useState } from 'react';
 import DescriptiondProps from '@/app/types/Description_types';
+import JobListing from '@/app/types/JobListing_types';
+import OpportunitiesById from '@/app/Service/Fetch/OpportunitiesById';
 
 const Description: React.FC<DescriptiondProps> = ({ index }) => {
-  const jobList = jsonData.job_postings[index];
+  const [jsonData, setJsonData] = useState<JobListing | null>(null);
+  const [loadingError, setLoadingError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchOpportunities = async () => {
+      try {
+        const data: JobListing = await OpportunitiesById(index);
+        setJsonData(data);
+      } catch (error) {
+        setLoadingError('Failed to load data');
+      }
+    };
+    fetchOpportunities();
+  }, [index]);
+
+  if (loadingError) {
+    return (
+      <div>{loadingError}</div>
+    );
+  }
+
+  if (jsonData === null) {
+    return (
+      <div>Loading...</div>
+    );
+  }
 
   return (
     <div className="w-[750px] border-2 pl-2 pr-4">
       {/* Description */}
       <div>
-        <h3 className="mt-3 mb-1 text-2xl font-serif font-bold">Discription</h3>
-        <div>{jobList.description}</div>
+        <h3 className="mt-3 mb-1 text-2xl font-serif font-bold">Description</h3>
+        <div className="font-serif text-base">{jsonData.description}</div>
       </div>
-      
-      {/* Responsibility */}
+
+      {/* Responsibilities */}
       <div>
         <h3 className="mt-3 mb-1 text-2xl font-serif font-bold">Responsibilities:</h3>
         <ul>
-          {jobList.responsibilities.map((responsibility: string, idx: number) => (
-            <li key={idx}>{responsibility}</li>
+          {jsonData.responsibilities.split('\n').map((responsibility: string, idx: number) => (
+            <li className="font-serif text-base" key={idx}>{responsibility}</li>
           ))}
         </ul>
       </div>
-      
+
       {/* Ideal Candidate */}
       <div>
         <h3 className="mt-3 mb-1 text-2xl font-serif font-bold">Ideal Candidate:</h3>
-        <div>{jobList.ideal_candidate.age}</div>
-        <div>{jobList.ideal_candidate.gender}</div>
-        <ul>
-          {jobList.ideal_candidate.traits.map((trait: string, idx: number) => (
-            <li key={idx}>{trait}</li>
-          ))}
-        </ul>
+        <div className="font-serif text-base">{jsonData.idealCandidate}</div>
       </div>
-      
+
       {/* When and Where */}
-      <div>{jobList.when_where}</div>
+      <div>
+        <h3 className="mt-3 mb-1 text-2xl font-serif font-bold">When and Where</h3>
+        <div className="font-serif text-base">{jsonData.whenAndWhere}</div>
+      </div>
     </div>
   );
 };

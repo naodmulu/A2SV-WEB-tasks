@@ -8,12 +8,16 @@ const DashboardData = ({ params }: { params: { dashboardID: string } }) => {
   return (
     <div className="w-full p-5 flex justify-between">
       {/* Description */}
-      <Description index={parseInt(dashboardID)} />
-      
+      <div className='ml-3'>
+      <Description index={dashboardID} />
+      </div>
       {/* About */}
-      <About index={parseInt(dashboardID)} />
+      <div className="w-[290px]  mr-3">
+        <About index={dashboardID} />
+      </div>
     </div>
   );
 };
 
 export default DashboardData;
+

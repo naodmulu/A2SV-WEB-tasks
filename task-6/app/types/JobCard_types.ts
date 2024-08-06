@@ -1,6 +1,6 @@
 interface JobCardProps{
 
-    index:number
+    index:string;
 }
 
 export default JobCardProps
