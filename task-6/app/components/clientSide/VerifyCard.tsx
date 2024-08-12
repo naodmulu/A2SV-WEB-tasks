@@ -47,9 +47,9 @@ const VerifyCard = () => {
 
       if (response.status === 200) {
         console.log(response);
-        Cookie.set("hireHubToken", response.data.data.refreshToken);
         router.push("/");
       }
+    
     } catch (err) {
       console.log(err);
       if (isAxiosError(err) && err.response) {
