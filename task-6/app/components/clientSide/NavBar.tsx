@@ -12,7 +12,6 @@ const NavBar = async () => {
             <Link href="/"> Home </Link>
             <Link href="/sign_in"> SignIn</Link>
             <Link href="/sign_up"> SignUp</Link>
-            <Link href="/api/auth/signout?callbackUrl =/sign_in">LogOut</Link>
             { session ? (
             <Link href="/api/auth/signout?callbackUrl =/sign_in">LogOut</Link>
             ) : (
