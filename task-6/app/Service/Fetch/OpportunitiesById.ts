@@ -19,12 +19,12 @@ const OpportunitiesById = async (id: string): Promise<JobListing> => {
     }
 
     const userData: JsonTypes = await response.json();
-    console.log('User Data:', userData);
+    // console.log('User Data:', userData.data.isBookmarked);
     const data: JobListing = userData.data;
     return data;
     
   } catch (error) {
-    console.error('Error:', error);
+    // console.error('Error:', error);
     throw error;
   }
 };

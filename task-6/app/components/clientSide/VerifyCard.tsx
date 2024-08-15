@@ -1,7 +1,6 @@
 "use client";
 import React, { useRef, useState } from 'react';
 import axios, { isAxiosError } from "axios";
-import Cookie from "js-cookie";
 import router from '@/node_modules/next/router';
 
 const VerifyCard = () => {

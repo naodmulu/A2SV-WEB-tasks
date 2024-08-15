@@ -13,24 +13,24 @@ interface FormValues {
 
 const SignInForm = () => {
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
-  const [loading, setLoading] = useState(false)
   const { register, handleSubmit, formState: { errors } } = useForm<FormValues>();
 
   const onSubmit = async (data: FormValues) => {
+    setLoading(true);  // Set loading state before calling signIn
     const result = await signIn("credentials", {
       redirect: false,
       email: data.email,
       password: data.password,
     });
-    setLoading(true)
+
     if (result?.error) {
       setError(result.error);
-      setLoading(false)
+      setLoading(false);  // Set loading to false on error
     } else {
-        console.log("successful")
-        setLoading(false)
-        router.push("/");  // Redirect to homepage on successful login
+      console.log("Login successful");
+      router.push("/");  // Redirect to homepage on successful login
     }
   };
 
@@ -52,6 +52,7 @@ const SignInForm = () => {
             id="email"
             className='h-8 py-1 px-2 border-[1px] border-gray-400 rounded-lg'
             type="email"
+            disabled={loading}  // Disable input during loading
           />
           {errors.email && <p>{errors.email.message}</p>}
         </div>
@@ -66,20 +67,22 @@ const SignInForm = () => {
             id="password"
             className='h-8 py-1 px-2 border-[1px] border-gray-400 rounded-lg'
             type="password"
+            disabled={loading}  // Disable input during loading
           />
           {errors.password && <p>{errors.password.message}</p>}
         </div>
 
         <div className="px-6 py-3 mt-3 flex flex-col bg-[#4640DE] rounded-xl">
-          <button type='submit'>
-          {loading ? 'Loading...' : 'Login'}
+          <button type='submit' disabled={loading} className="text-white">
+            {loading ? 'Loading...' : 'Login'}
           </button>
-          {error && <p>{error}</p>}
+          {error && <p className="text-red-500 mt-2">{error}</p>}
         </div>
       </form>
 
       <div className='mt-3 py-1'>
-        <p className='text-base font-serif font-thin text-[#202430]'>Don't have an account?
+        <p className='text-base font-serif font-thin text-[#202430]'>
+          Don't have an account?
           <Link key="SignUp" href={`/sign_up`} passHref>
             <span className='ml-2 font-bold font-serif text-[#4640DE]'>
               SignUp

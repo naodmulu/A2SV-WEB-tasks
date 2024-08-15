@@ -1,8 +1,9 @@
 "use client";import { useState, useEffect } from 'react';
 import JobCard from "./components/clientSide/JobCard";
 import Opportunities from "./Service/Fetch/Opportunities";
-import Link from "next/link";
+import SortByDropdown from './components/clientSide/SortByDropdown';
 import JobListing from "./types/JobListing_types";
+
 
 export default function Home() {
   const [jsonData, setJsonData] = useState<JobListing[] | null>(null);
@@ -29,19 +30,29 @@ export default function Home() {
 
   if (jsonData === null) {
     return (
-      <div>Loading...</div>
+      <div className=''>Loading...</div>
     );
   }
 
   return (
-    <main className="">
-      {jsonData.map((item,index) => (
-        <Link key={item.id} href={`/dashboard/${item.id}`} passHref>
-          <div>
-            <JobCard index={item.id} />
+    <main className="pl-32 py-12" id='homeContainer'>
+      <div className='w-[919px] '>
+        <div className=" mb-8 flex justify-between">
+          <div className="flex flex-col">
+            <h1 className='font-black text-3xl text-[#25324B]'>Opportunities</h1>
+            <p className='font-thick text-base text-[#7C8493]'>Showing {jsonData.length} results</p>
           </div>
-        </Link>
-      ))}
+
+        <SortByDropdown/>
+        </div>
+      {jsonData.map((item,index) => {
+        return (
+            <div className='mb-8'>
+              <JobCard index={item.id} />
+            </div>
+        );
+      })}
+      </div>
     </main>
   );
 }

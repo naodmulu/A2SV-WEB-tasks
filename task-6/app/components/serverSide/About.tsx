@@ -45,23 +45,29 @@ const About: React.FC<AboutProps> = ({ index }) => {
         <h1>Categories</h1>
         <div className='flex flex-wrap'>
           {job.categories.map((category, idx) => (
-            <div key={idx} className='mr-2 mt-1 pl-3 pr-3 pt-1 pb-1 rounded-lg bg-black text-white min-w-fit w-14 text-center font-semibold text-xs font-mono border-solid'>
-              {category}
+            <div key={idx} className='mr-2 mt-1 pl-3 pr-3 pt-1 pb-1 rounded-lg bg-[#EB8533] bg-opacity-10 border-y border-x border-[#EB8533] text-[#EB8533] min-w-fit w-14 text-center font-semibold text-xs font-mono border-solid'>
+              {category.split(" ")[0]}
             </div>
           ))}
         </div>
       </div>
 
       {/* Required Skills */}
-      <div className="mt-4">
-        <h3>Required Skills</h3>
-        <ul>
-          {job.requiredSkills.map((skill, idx) => (
-            <li key={idx}>{skill}</li>
-          ))}
-        </ul>
+      <div className="mt-2">
+      <h3 className="text-lg font-bold text-gray-900">Required Skills</h3>
+      <div className="flex flex-wrap mt-2">
+        {job.requiredSkills.map((skill, index) => (
+          <span
+            key={index}
+            className="bg-gray-100 text-blue-700 text-sm font-semibold px-3 py-1 rounded-lg"
+          >
+            {skill}
+          </span>
+        ))}
       </div>
     </div>
+    </div>
+    
   );
 };
 
